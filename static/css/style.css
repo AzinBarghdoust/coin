@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "IRANSans";
+    /*src: url("../fonts/BYekan+.ttf");*/
+
+}
+@font-face {
+    font-family: "IRANSans";
+    /*src: url("../fonts/BYekan+ Bold.ttf");*/
+    font-weight: normal;
+
+}
+
+* {
+    font-family: 'IRANSans', sans-serif;
+    line-height: 1.8rem;
+    text-align: right;
+}
+
+/* SM breakpoint */
+@media (min-width: 576px) {
+    /* CUSTOM WIDTHS */
+    .w-sm-75 { width: 75%!important; }
+}

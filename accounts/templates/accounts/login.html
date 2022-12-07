@@ -1,0 +1,65 @@
+{% extends '_base.html' %}
+
+{% load static %}
+{% block page_title %}
+    Login
+{% endblock page_title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="d-flex justify-content-center mt-5" dir="rtl">
+                    <div class="col-xl-5 col-lg-6 col-md-7 col-sm-7 col-xs-8 bg-white m-5 m-sm-7 border rounded px-4 pt-4 pb-3 shadow"
+                </div>
+                <div class="login100-form-title" style="">
+                </div>
+                {#        <div class="col-xl-3 col-lg-4 col-md-5 col-sm-5 col-xs-6 bg-white m-3 m-sm-5 border rounded px-4 pt-4 pb-3 shadow">#}
+                <div class="wrapper">
+                    <form action="" class="form-signin" style="text-align: left" method="post" novalidate>
+                        {% csrf_token %}
+                        <lable>Email:
+                            <input type="text" name="email">
+                        </lable>
+                        <br><br>
+                        <lable>password:
+                            <input type="password" name="password">
+                        </lable>
+                        <br><br>
+                        <input type="submit" value="login">
+                    </form>
+{#                    <form class="form-signin" action="" method="post">#}
+{#                        {% csrf_token %}#}
+{#                        <h2 class="form-signin-heading">وارد شوید</h2>#}
+{#                        <br><br>#}
+{#                        <label>شماره موبایل:#}
+{#                            <input type="text" class="form-control" name="phone" placeholder="phone"#}
+{#                                   required="" autofocus=""/>#}
+{#                        </label>#}
+{#                        <label>رمز عبور:#}
+{#                            <input type="password" class="form-control" name="password" placeholder="Password"#}
+{#                                   required=""/>#}
+{#                        </label>#}
+{#                        <label class="checkbox">#}
+{#                            <div class="d-flex justify-content-between align-items-center">#}
+{#                                <div class="mt-2">#}
+{#                                    <a class="text-decoration-none" href="">فراموشی رمز#}
+{#                                        عبور</a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <button type="submit" class="btn btn-outline-success mt-3 w-100">ورود</button>#}
+{#                            <div class="line-with-middle-sep">#}
+{#                            </div>#}
+{#                            <a href="{% url 'register' %}" class="btn btn-outline-primary mt-2 mb-3 w-100">ثبت#}
+{#                                نام</a>#}
+{#                        </label>#}
+{#                    </form>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{% endblock content %}
