@@ -27,8 +27,8 @@ class CreatePosition(APIView):
     permission_classes = [IsAuthenticated]
 
     def check_sma(self, s, f):
-        # timer = Timer(2, self.check_sma, args=(s, f))
-        # timer.start()
+        timer = Timer(2, self.check_sma, args=(s, f))
+        timer.start()
         if s > f:
 
             print(True)
@@ -37,7 +37,6 @@ class CreatePosition(APIView):
 
             print(False)
             return False
-
 
     def post(self, request):
         user = request.user
@@ -51,7 +50,6 @@ class CreatePosition(APIView):
         position = Position.objects.create(user=user, pair1=pair1, pair2=pair2, time_frame=time_frame, trade=trade,
                                            slow_move=slow_move, fast_move=fast_move, timeframe_num=timeframe_num)
         serializer = PositionSerializer(position, many=False)
-
         start_at = int((datetime.now() - timedelta(int(slow_move) + 1)).timestamp())
         url_coin = f"https://api.kucoin.com/api/v1/market/candles?type={timeframe_num}{time_frame}&symbol={pair1}-{pair2}&startAt={start_at}"
         response = requests.get(url=url_coin).json()
@@ -78,13 +76,6 @@ class CreatePosition(APIView):
 
         # threading.Timer(5, self.check_sma(s,f)).start()
         # threading.Thread(target=lambda: every(5, self.check_sma(s,f))).start()
-        def print_every_n_seconds(n=2):
-            while True:
-                print(time.ctime())
-                time.sleep(n)
-
-        thread = threading.Thread(target=print_every_n_seconds, daemon=True)
-        thread.start()
         while True:
             test = self.check_sma(s, f)
             print(s)
